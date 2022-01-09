@@ -4,6 +4,7 @@
 - We can build websites that operate on a user's machine with higher level of access to the system resources than traditional web apps which are constrained to the browser context.
 - Web apps cannot access your hard drive but desktop apps can, which is why it's sometimes better to make desktop apps than web apps.
 - Can read any arbitrary file off the machine at any time.
+- `Tray` - is an icon that shows on the OS for an app
 ---
 
 ## How Google Chrome Works

@@ -71,6 +71,7 @@ if (process.env.NODE_ENV !== 'production') {
   menuTemplate.push({
     label: 'View',
     submenu: [
+      // role gives us the menu option of reload, shortcut for common sub menu, comes preconfigured.
       { role: 'reload' },
       {
         label: 'Toggle Developer Tools',
