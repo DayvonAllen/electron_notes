@@ -15,6 +15,7 @@ app.on('ready', () => {
 
   const iconName = process.platform === 'win32' ? 'windows-icon.png' : 'iconTemplate.png';
   const iconPath = path.join(__dirname, `./src/assets/${iconName}`);
+  // we need to reference the timer tray so it doesn't get garbage collected when we don't want it to be.
   tray = new TimerTray(iconPath, mainWindow);
 });
 
