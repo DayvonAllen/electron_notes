@@ -1,13 +1,25 @@
-// this file contains all the logic pertaining to the electron side of things
-// just concerned with creating windows and handling the electron side.
-const electron = require("electron");
+const electron = require('electron');
+// "ffmpeg" is a command line tool used to work with video and audio files
+// can convert video files, can merge audio and video files.
+// can use it to query for the duration of a video file
+// "fluent-ffmpeg" makes working with "ffmpeg" easier with node.js, it's just a wrapper around "ffmpeg"
+const ffmpeg = require('fluent-ffmpeg');
 
-// get the 'electron app' so we can make windows
-// app gives us a view into the electron lifecycle
-const { app } = electron;
+const { app, BrowserWindow, ipcMain } = electron;
 
-// we have to wait for an app ready event before we start doing stuff on our side.
-// this is event based programming, we wait for an event, when that event occurs we execute code.
-app.on("ready", () => {
-    console.log("App is now ready")
-})
+let mainWindow;
+
+app.on('ready', () => {
+  mainWindow = new BrowserWindow({});
+  mainWindow.loadURL(`file://${__dirname}/index.html`);
+});
+
+ipcMain.on('video:submit', (event, path) => {
+  // ffprobe, reads a files metadata
+  ffmpeg.ffprobe(path, (err, metadata) => {
+    mainWindow.webContents.send(
+      'video:metadata',
+      metadata.format.duration
+    );
+  });
+});

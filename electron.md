@@ -3,6 +3,7 @@
 - We can use web technology to create desktop apps.
 - We can build websites that operate on a user's machine with higher level of access to the system resources than traditional web apps which are constrained to the browser context.
 - Web apps cannot access your hard drive but desktop apps can, which is why it's sometimes better to make desktop apps than web apps.
+- Can read any arbitrary file off the machine at any time.
 ---
 
 ## How Google Chrome Works
@@ -77,6 +78,28 @@
 
 ```
 - Then you can type `npm run electron` to start the app.
+- Load HTML into main window:
+``` 
+// this file contains all the logic pertaining to the electron side of things
+// just concerned with creating windows and handling the electron side.
+const electron = require("electron");
+
+// get the 'electron app' so we can make windows
+// app gives us a view into the electron lifecycle
+const { app, BrowserWindow } = electron;
+
+// we have to wait for an app ready event before we start doing stuff on our side.
+// this is event based programming, we wait for an event, when that event occurs we execute code.
+app.on("ready", () => {
+  // create a browser window(this will be our main window), object is for configuration if you need it
+  const mainWindow  = new BrowserWindow({});
+  // tells the main window to load an HTML document when it starts
+  // can be any valid url(ex. https://google.com) or a path to a document on our local filesystem
+  // "__dirname" is global variable given by node.js which gives us our current working directory.
+  // file: means use file protocol instead of http
+  mainWindow.loadURL(`file://${__dirname}/index.html`);
+});
+```
 ---
 
 ## Installation Of Electron
