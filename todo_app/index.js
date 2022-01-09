@@ -35,17 +35,21 @@ const menuTemplate = [
     submenu: [
       {
         label: 'New Todo',
+        // invoked when this button is clicked
         click() { createAddWindow(); }
       },
       {
         label: 'Clear Todos',
+        // invoked when this button is clicked
         click() {
           mainWindow.webContents.send('todo:clear');
         }
       },
       {
         label: 'Quit',
+        // short cuts declaration
         accelerator: process.platform === 'darwin' ? 'Command+Q' : 'Ctrl+Q',
+        // invoked when this button is clicked
         click() {
           app.quit();
         }
@@ -54,6 +58,8 @@ const menuTemplate = [
   }
 ];
 
+// process is a global variable that you get from node and .platform tells you what environment you are in, "darwin" is Mac OSX,
+// Mac OSX is treated differently than windows when it comes to menus, the first menu value will not display correctly, so you add a "{}" first then add your menu labels
 if (process.platform === 'darwin') {
   menuTemplate.unshift({});
 }
