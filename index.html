@@ -20,7 +20,7 @@
       event.preventDefault();
       const { path } = document.querySelector('input').files[0];
 
-      // send IPC event using the event "video:submit"
+      // send IPC event using the event "video:submit"(could be any event name)
       ipcRenderer.send('video:submit', path);
     });
 

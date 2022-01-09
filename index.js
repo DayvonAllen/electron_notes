@@ -14,10 +14,11 @@ app.on('ready', () => {
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 });
 
-// main window IPC
+// main electron app IPC
 ipcMain.on('video:submit', (event, path) => {
   // ffprobe, reads a files metadata
   ffmpeg.ffprobe(path, (err, metadata) => {
+    // this "mainWindow.webContents.send()" allows you to send events to rendererProcesses using the electron App
     mainWindow.webContents.send(
       'video:metadata',
       metadata.format.duration
