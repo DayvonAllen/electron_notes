@@ -23,6 +23,12 @@
 - The job of each `RendererProcesses` is to show a separate window to the user in a desktop looking environment.
 - Our electron app can have as many `RendererProcesses` as we wish, each of which will show a different window to the user.
 - Communication between the `RendererProcesses` or windows is going to be handled by IPC.
+- When we create an electron app two things happen:
+  1. The `electron app` is created
+  2. The `electron app` creates a `MainWindow`(which is a browser window) after it boots up. 
+- So we are going to have two separate files initially:
+  1. a JS file that will be respsonsible for starting up the electron file
+  2. a `index.html` that contains all of the form elements and all the form event handlers etc.
 ---
 
 ## History Of Electron
@@ -30,4 +36,11 @@
 - `Github` - a company involved in the management of code, not the creation of code.
   - it's based on the `git` version control system that is used to track changes in source code, merge different blobs of code and review changes in general.
 - it was then used to create `Atom`(created by `Github` and was the first electron app), `VsCode`, `Slack`, `Discord` and many more desktop apps.
+---
+
+## Installation Of Electron
+- `npm install electron` - installs in a specific project
+  - ***Must have node and npm install first***
+  - `sudo npm install -g electron`(linux and Mac OSX) - installs globally so you can use it on your computer no matter what project you are in(you don't have to add as a dependency to your `package.json` in that case)
+    - `npm install -g electron`(windows)
 ---
