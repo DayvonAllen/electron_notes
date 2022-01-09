@@ -24,3 +24,10 @@
 - Our electron app can have as many `RendererProcesses` as we wish, each of which will show a different window to the user.
 - Communication between the `RendererProcesses` or windows is going to be handled by IPC.
 ---
+
+## History Of Electron
+- it was made by `Github` in 2013.
+- `Github` - a company involved in the management of code, not the creation of code.
+  - it's based on the `git` version control system that is used to track changes in source code, merge different blobs of code and review changes in general.
+- it was then used to create `Atom`(created by `Github` and was the first electron app), `VsCode`, `Slack`, `Discord` and many more desktop apps.
+---
