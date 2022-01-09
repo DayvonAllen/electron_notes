@@ -24,8 +24,8 @@
 - Our electron app can have as many `RendererProcesses` as we wish, each of which will show a different window to the user.
 - Communication between the `RendererProcesses` or windows is going to be handled by IPC.
 - When we create an electron app two things happen:
-  1. The `electron app` is created
-  2. The `electron app` creates a `MainWindow`(which is a browser window) after it boots up. 
+  1. The `electron app` is created(made for free by the electron library)
+  2. The `electron app` can then create a `MainWindow`(which is a browser window) after it boots up, we have to make it this window ourselves.
 - So we are going to have two separate files initially:
   1. a `index.js` file that will be respsonsible for starting up the electron file
      - this file will be executed by our `electron runtime` inside of our terminal environment. 
@@ -38,6 +38,45 @@
 - `Github` - a company involved in the management of code, not the creation of code.
   - it's based on the `git` version control system that is used to track changes in source code, merge different blobs of code and review changes in general.
 - it was then used to create `Atom`(created by `Github` and was the first electron app), `VsCode`, `Slack`, `Discord` and many more desktop apps.
+---
+
+## Electron Lifecycle
+- Everytime an app starts, this lifecycle happens:
+  - Electron starts
+  - App process is created
+  - App is ready to start doing things
+  - App closes down.
+---
+
+## Start Electron
+- The `package.json` file should contain this script `"electron": "electron ."`:
+```
+{
+  "name": "electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "electron": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DayvonAllen/electron_notes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DayvonAllen/electron_notes/issues"
+  },
+  "homepage": "https://github.com/DayvonAllen/electron_notes#readme",
+  "dependencies": {
+    "electron": "^16.0.6"
+  }
+}
+
+```
+- Then you can type `npm run electron` to start the app.
 ---
 
 ## Installation Of Electron
