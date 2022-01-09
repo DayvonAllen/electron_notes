@@ -9,6 +9,7 @@ let mainWindow;
 let tray;
 
 app.on('ready', () => {
+  if(process.platform === "darwin")
   app.dock.hide();
   mainWindow = new MainWindow(`file://${__dirname}/src/index.html`);
 
