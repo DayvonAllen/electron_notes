@@ -10,6 +10,7 @@
     const list = document.querySelector('ul');
 
     ipcRenderer.on('todo:add', (event, todo) => {
+      console.log("callled")
       const li = document.createElement('li');
       const text = document.createTextNode(todo);
 

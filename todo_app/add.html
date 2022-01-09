@@ -16,6 +16,8 @@
     document.querySelector('form').addEventListener('submit', (event) => {
       event.preventDefault();
 
+      console.log("ran")
+
       const { value } = document.querySelector('input');
       ipcRenderer.send('todo:add', value);
     });
