@@ -27,8 +27,10 @@
   1. The `electron app` is created
   2. The `electron app` creates a `MainWindow`(which is a browser window) after it boots up. 
 - So we are going to have two separate files initially:
-  1. a JS file that will be respsonsible for starting up the electron file
-  2. a `index.html` that contains all of the form elements and all the form event handlers etc.
+  1. a `index.js` file that will be respsonsible for starting up the electron file
+     - this file will be executed by our `electron runtime` inside of our terminal environment. 
+     - we can write JS like we do in `node.js` in this `index.js` file.
+  2. a `index.html` file that contains all of the form elements and all the form event handlers etc.
 ---
 
 ## History Of Electron
