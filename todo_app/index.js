@@ -21,11 +21,14 @@ function createAddWindow() {
     title: 'Add New Todo'
   });
   addWindow.loadURL(`file://${__dirname}/add.html`);
+  // when the browser window is closed, a "closed" event is sent and we should set the variable that is holding it to "null" so it can be garbage collected.
   addWindow.on('closed', () => addWindow = null);
 }
 
+// receive message from one browser window and send it to another browser winder
 ipcMain.on('todo:add', (event, todo) => {
   mainWindow.webContents.send('todo:add', todo);
+  // close add window, still references an object in memory, so we set up an event listener to null out "addWindow" so we can free the memory.
   addWindow.close();
 });
 
