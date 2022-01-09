@@ -9,6 +9,7 @@ let mainWindow;
 let tray;
 
 app.on('ready', () => {
+  // hide dock in Mac OSX
   if(process.platform === "darwin")
   app.dock.hide();
   mainWindow = new MainWindow(`file://${__dirname}/src/index.html`);
