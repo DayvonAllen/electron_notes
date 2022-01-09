@@ -24,6 +24,7 @@
       ipcRenderer.send('video:submit', path);
     });
 
+    // Renderer IPC
     // listens for event "video:metadata" and gets the duration.
     ipcRenderer.on('video:metadata', (event, duration) => {
       document.querySelector('#result').innerHTML = `Video is ${duration} seconds`;
