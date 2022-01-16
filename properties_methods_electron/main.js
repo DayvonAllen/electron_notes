@@ -55,7 +55,7 @@ function createWindow () {
   // app.on('browser-window-focus', () => {
   //   console.log('App focused')
   // })
-  //
+  // returns an array with all the current windows
   // console.log(BrowserWindow.getAllWindows())
 
   // Listen for window being closed
