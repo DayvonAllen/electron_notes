@@ -44,6 +44,7 @@ ipcMain.on( 'sync-message', (e, args) => {
   console.log(args)
 
   setTimeout( () => {
+    // how you send a message back to a process who has sent a synchronous event.
     e.returnValue = 'A sync response from the main process'
   }, 4000)
 
@@ -51,6 +52,7 @@ ipcMain.on( 'sync-message', (e, args) => {
 
 ipcMain.on( 'channel1', (e, args) => {
   console.log(args)
+  // e.sender - gets the event sender, so you can send an event to the sender on a specified channel
   e.sender.send( 'channel1-response', 'Message received on "channel1". Thank you!')
 })
 

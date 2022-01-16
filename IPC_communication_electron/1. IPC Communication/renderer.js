@@ -14,6 +14,8 @@ document.getElementById('talk').addEventListener('click', e => {
 
   // ipcRenderer.send( 'channel1', 'Hello from main window')
 
+  // window will hang until we get a response
+  // should avoid if possible
   let response = ipcRenderer.sendSync( 'sync-message', 'Waiting for response')
   console.log(response)
 

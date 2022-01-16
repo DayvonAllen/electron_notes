@@ -1,3 +1,4 @@
+// remote module is a security risk and has performance implications
 // Modules
 const {app, BrowserWindow} = require('electron')
 
