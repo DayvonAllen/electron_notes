@@ -1,3 +1,4 @@
+// deprecated, old version of electron.js
 const electron = require('electron');
 // "ffmpeg" is a command line tool used to work with video and audio files, must install on your computer
 // can convert video files, can merge audio and video files.

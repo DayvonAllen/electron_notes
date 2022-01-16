@@ -1,3 +1,4 @@
+// deprecated, old version of electron.js
 const path = require('path');
 const electron = require('electron');
 const TimerTray = require('./app/timer_tray');

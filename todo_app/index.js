@@ -1,3 +1,4 @@
+// deprecated, old version of electron.js
 const electron = require('electron');
 
 const { app, BrowserWindow, Menu, ipcMain } = electron;
