@@ -42,11 +42,14 @@
       }
 
       const toPng = e => {
+        // returns image as a buffer
         let pngSplash = splash.toPNG()
         saveToDesktop( pngSplash, 'png' )
       }
 
       const toJpg = e => {
+        // argument is the export quality of the image from 0 - 100
+        // returns image as a buffer
         let jpgSplash = splash.toJPEG(100)
         saveToDesktop( jpgSplash, 'jpg' )
       }

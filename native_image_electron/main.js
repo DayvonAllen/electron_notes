@@ -1,4 +1,5 @@
 // Modules
+//  Native Image is a shared module between the main process and rendererProcesses
 const {app, BrowserWindow, ipcMain} = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will

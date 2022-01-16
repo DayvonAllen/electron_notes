@@ -1,4 +1,5 @@
 // process represents a running node.js process in our case the main process.
+//  process is a shared module between the main process and rendererProcesses
 // Modules
 const {app, BrowserWindow} = require('electron')
 
