@@ -5,6 +5,7 @@
 - Web apps cannot access your hard drive but desktop apps can, which is why it's sometimes better to make desktop apps than web apps.
 - Can read any arbitrary file off the machine at any time.
 - `Tray` - is an icon that shows on the OS for an app
+- [More Information on Electron](https://www.electronjs.org/docs/latest/api/app)
 ---
 
 ## How Google Chrome Works
