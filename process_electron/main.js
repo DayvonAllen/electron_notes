@@ -27,7 +27,11 @@ function createWindow () {
   // Open DevTools - Remove for PRODUCTION!
   mainWindow.webContents.openDevTools();
 
-  mainWindow.webContents.on( 'crashed', () => {
+  mainWindow.webContents.on( 'render-process-gone', (event, details) => {
+    console.log(details)
+    if(details.reason === "crashed") {
+      console.log("a terrible crash occured")
+    }
 
     setTimeout( () => {
       mainWindow.reload()
