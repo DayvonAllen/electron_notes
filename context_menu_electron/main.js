@@ -31,6 +31,8 @@ function createWindow () {
   mainWindow.webContents.openDevTools();
 
   mainWindow.webContents.on('context-menu', e => {
+    // menu for right clicks
+    // omitting window to call this on will default to show on the window where the event was fired.
     contextMenu.popup()
   })
 

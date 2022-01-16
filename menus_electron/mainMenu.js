@@ -29,6 +29,7 @@ module.exports = [
       {
         label: 'Greet',
         click: () => { console.log('Hello from Main Menu') },
+        // not global, which means will only work when the app is in focus.
         accelerator: 'Shift+Alt+G'
       }
     ]
