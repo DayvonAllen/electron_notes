@@ -21,12 +21,15 @@
         statusNode.innerText = status ? 'Online' : 'Offline'
       }
 
+      // navigator.onLine detects whether there is internet connection or not
       setStatus( navigator.onLine )
 
+      // listens for online network event
       window.addEventListener( 'online', e => {
         setStatus(true)
       })
 
+      // listens for offline network event
       window.addEventListener( 'offline', e => {
         setStatus(false)
       })
