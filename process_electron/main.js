@@ -1,3 +1,4 @@
+// process represents a running node.js process in our case the main process.
 // Modules
 const {app, BrowserWindow} = require('electron')
 
@@ -15,6 +16,7 @@ function createWindow () {
       // Disable 'contextIsolation' to allow 'nodeIntegration'
       // 'contextIsolation' defaults to "true" as from Electron v12
       contextIsolation: false,
+      // allow the renderer access to the main process
       nodeIntegration: true
     }
   })
