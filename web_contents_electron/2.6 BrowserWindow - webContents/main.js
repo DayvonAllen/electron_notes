@@ -34,6 +34,7 @@ function createWindow () {
     wc.executeJavaScript(`alert("${selectedText}")`)
   })
 
+  // instance events
   // wc.on('media-started-playing', () => {
   //   console.log('Video Started')
   // })
@@ -45,13 +46,15 @@ function createWindow () {
   //   console.log('Logging in:')
   //   callback('user', 'passwd')
   // })
-  //
+  // We use this to get the response status and body when a user tries to authenticate with a server
+  // this fire immediately after a link is clicked or after content is loaded
   // wc.on('did-navigate', (e, url, statusCode, message) => {
   //   console.log(`Navigated to: ${url}`)
   //   console.log(statusCode)
   // })
 
   // wc.on('new-window', (e, url) => {
+  // prevents the default behavior of opening a new window when clicking a URL
   //   e.preventDefault()
   //   console.log(`Preventing new window for: ${url}`)
   // })
@@ -60,9 +63,11 @@ function createWindow () {
   //   console.log(`${input.key} : ${input.type}`)
   // })
 
+  // fires whenever everything has loaded including images
   // wc.on('did-finish-load', () => {
   //   console.log('Content fully loaded')
   // })
+  // structure of html is ready at this point(images may not be loaded at this point)
   // wc.on('dom-ready', () => {
   //   console.log('DOM Ready')
   // })
