@@ -29,6 +29,8 @@ function createWindow () {
 
   let wc = mainWindow.webContents
 
+  // for right clicks
+  // params.selectionText - lets you get the selected text that a person right clicked on.
   wc.on('context-menu', (e, params) => {
     let selectedText = params.selectionText
     wc.executeJavaScript(`alert("${selectedText}")`)
@@ -42,10 +44,12 @@ function createWindow () {
   //   console.log('Video Paused')
   // })
 
+  // can use this to login to a service using http and sending credentials
   // wc.on('login', (e, request, authInfo, callback) => {
   //   console.log('Logging in:')
   //   callback('user', 'passwd')
   // })
+
   // We use this to get the response status and body when a user tries to authenticate with a server
   // this fire immediately after a link is clicked or after content is loaded
   // wc.on('did-navigate', (e, url, statusCode, message) => {
