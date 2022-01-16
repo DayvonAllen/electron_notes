@@ -27,6 +27,7 @@ function createWindow () {
 
   mainWindow.webContents.on('did-finish-load', () => {
 
+    // dialog for selecting a photo
     // dialog.showOpenDialog({
     //   buttonLabel: 'Select a photo',
     //   defaultPath: app.getPath('desktop'),
@@ -35,12 +36,14 @@ function createWindow () {
     //   console.log(result)
     // })
 
+    // saves a new file
     // dialog.showSaveDialog({}).then( result => {
     //   console.log(result)
     // })
 
     const answers = ['Yes', 'No', 'Maybe']
 
+    // prompts a choice from options
     dialog.showMessageBox({
       title: 'Message Box',
       message: 'Please select an option',
