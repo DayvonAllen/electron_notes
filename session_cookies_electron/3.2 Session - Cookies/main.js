@@ -1,3 +1,4 @@
+// cookies are a web based data store
 // Modules
 const {app, BrowserWindow, session} = require('electron')
 

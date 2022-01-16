@@ -33,14 +33,18 @@ function createWindow () {
     let fileSize = downloadItem.getTotalBytes()
 
     // Save to desktop
+    // automatically downloads an item to the user's desktop under a specified file name
     downloadItem.setSavePath(app.getPath('desktop') + `/${fileName}`)
 
     downloadItem.on('updated', (e, state) => {
 
       let received = downloadItem.getReceivedBytes()
 
+      // get progress
+      // states are "progressing" or "interrupted"(if something went wrong)
       if (state === 'progressing' && received) {
 
+        // gets the amount we dowloaded so far
         let progress = Math.round((received/fileSize)*100)
         webContents.executeJavaScript(`window.progress.value = ${progress}`)
       }

@@ -28,6 +28,11 @@ function createWindow () {
         contextIsolation: false,
         nodeIntegration: true
       },
+      // allows you to sync your applications across multiple devices by using a custom session
+      // this partition will save to disk
+      // there are also memory partitions that get deleted when app is closed
+      // if you don't put "persist:" in front of the session name, it will save in memory only.
+      // will create partition if it doesn't already exist.
       partition: 'persist:part1'
     }
   })
@@ -39,6 +44,7 @@ function createWindow () {
   // another way to get the default session
   let defaultSes = session.defaultSession
 
+  // clears session data
   ses.clearStorageData()
 
   // console.log( Object.is(ses, customSes) )
