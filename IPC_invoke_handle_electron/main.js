@@ -17,6 +17,7 @@ async function askFruit () {
   return fruits[choice.response]
 }
 
+// handles "invoke" from renderer process and executes a function and then returns a value
 ipcMain.handle('ask-fruit', e => {
 
   return askFruit()

@@ -7,6 +7,7 @@ const { ipcRenderer } = require('electron')
 document.getElementById('ask').addEventListener('click', e => {
 
 
+  // invoke a function on the main process(on the "ask-fruit" channel) and receives the returned value in the callback
   ipcRenderer.invoke( 'ask-fruit' ).then( answer => {
 
     console.log(answer)
