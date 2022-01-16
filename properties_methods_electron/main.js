@@ -42,13 +42,16 @@ function createWindow () {
     mainWindow.maximize()
   })
 
+  // instance events
+  // will fire when mainWindow is focused
   // mainWindow.on('focus', () => {
   //   console.log('Main win focused')
   // })
+  // will fire when secWindow is focused
   // secWindow.on('focus', () => {
   //   console.log('Second win focused')
   // })
-  //
+  // will fire whenever any window is focused
   // app.on('browser-window-focus', () => {
   //   console.log('App focused')
   // })
@@ -57,6 +60,7 @@ function createWindow () {
 
   // Listen for window being closed
   mainWindow.on('closed',  () => {
+    // set to null so it can be garbage collected
     mainWindow = null
   })
   secWindow.on('closed',  () => {
