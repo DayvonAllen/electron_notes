@@ -33,8 +33,11 @@ function createWindow () {
     }
   })
 
+  // default session(created by electron), shared by all browser windows
+  // a session is the store of any content's data
   let ses = mainWindow.webContents.session
   let ses2 = secWindow.webContents.session
+  // another way to get the default session
   let defaultSes = session.defaultSession
 
   ses.clearStorageData()
