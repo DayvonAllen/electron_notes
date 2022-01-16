@@ -1,37 +1,54 @@
 // Modules
-//  Clipboard is a shared module between the main process and rendererProcesses
-const {app, BrowserWindow, clipboard} = require('electron')
+const {app, BrowserWindow} = require('electron')
+const fs = require('fs')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
+app.disableHardwareAcceleration()
+
 // Create a new BrowserWindow when `app` is ready
 function createWindow () {
 
-  clipboard.writeText('Hello from the main process!')
-
   mainWindow = new BrowserWindow({
     width: 1000, height: 800,
+    show: false,
     webPreferences: {
       // --- !! IMPORTANT !! ---
       // Disable 'contextIsolation' to allow 'nodeIntegration'
       // 'contextIsolation' defaults to "true" as from Electron v12
       contextIsolation: false,
-      nodeIntegration: true
+      nodeIntegration: true,
+      offscreen: true
     }
   })
 
   // Load index.html into the new BrowserWindow
-  mainWindow.loadFile('index.html')
+  mainWindow.loadURL('https://electronjs.org')
 
-  // Open DevTools - Remove for PRODUCTION!
-  mainWindow.webContents.openDevTools();
+  let i = 1
+  mainWindow.webContents.on('paint', (e, dirty, image) => {
 
-  // Listen for window being closed
-  mainWindow.on('closed',  () => {
+    let screenshot = image.toPNG()
+    fs.writeFile( app.getPath('desktop') + `/screenshot_${i}.png`, screenshot, console.log )
+    i++
+  })
+
+  mainWindow.webContents.on('did-finish-load', e => {
+    console.log( mainWindow.getTitle() )
+
+    mainWindow.close()
     mainWindow = null
   })
+
+  // Open DevTools - Remove for PRODUCTION!
+  // mainWindow.webContents.openDevTools();
+
+  // Listen for window being closed
+  // mainWindow.on('closed',  () => {
+  //   mainWindow = null
+  // })
 }
 
 // Electron `app` is ready

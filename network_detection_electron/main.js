@@ -1,6 +1,5 @@
 // Modules
-//  Clipboard is a shared module between the main process and rendererProcesses
-const {app, BrowserWindow, clipboard} = require('electron')
+const {app, BrowserWindow} = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -8,8 +7,6 @@ let mainWindow
 
 // Create a new BrowserWindow when `app` is ready
 function createWindow () {
-
-  clipboard.writeText('Hello from the main process!')
 
   mainWindow = new BrowserWindow({
     width: 1000, height: 800,

@@ -37,6 +37,7 @@
 
         let size = splash.getSize()
 
+        // resize to 1/4 of the original size and then show the preview
         let splashURL = splash.resize({ width: Math.round(size.width/4), height: Math.round(size.height/4) }).toDataURL()
         document.getElementById('preview').src = splashURL
       }
@@ -53,6 +54,8 @@
         let jpgSplash = splash.toJPEG(100)
         saveToDesktop( jpgSplash, 'jpg' )
       }
+
+      // can also export to "toBitmap" and "toDataURL" which is a very useful format for use on the web.
 
 
     </script>
