@@ -11,6 +11,7 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     width: 1000, height: 800,
     frame: false,
+    // allows you to have native window buttons in a frameless window
     titleBarStyle: 'hidden',
     webPreferences: {
       // --- !! IMPORTANT !! ---

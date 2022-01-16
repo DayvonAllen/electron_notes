@@ -10,6 +10,9 @@
       html { font-family: sans-serif; background: #2B2E3B; color: #9FEAF9; }
     </style>
   </head>
+  <!-- necessary for interacting with a frameless window, specify where the window can be dragged from  -->
+  <!-- user-select:none - user cannot select the html -->
+  <!-- -webkit-app-region:drag; - allows the user to drag the window -->
   <body style="user-select:none; -webkit-app-region:drag; padding-top:20px;">
 
     <h1>Hello Electron!</h1>
@@ -17,6 +20,7 @@
 
     <br>
     <br>
+    <!-- -webkit-app-region:no-drag; - prevents the user from dragging the input element -->
     <input type="range" name="range" min="0" max="10" style="-webkit-app-region:no-drag;">
 
     <script>
